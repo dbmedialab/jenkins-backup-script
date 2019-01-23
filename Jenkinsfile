@@ -3,6 +3,11 @@ pipeline {
         label 'master'
     }
     stages {
+        stage ("Tools") {
+            steps {
+                tool 'make'
+            }
+        }
         stage ("Clean") {
             steps {
                 sh 'make clean'
