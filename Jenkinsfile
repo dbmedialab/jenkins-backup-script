@@ -21,7 +21,9 @@ pipeline {
         }
         
         stage ("Upload") {
-            agent any
+            agent {
+                label 'machine'
+            }
             steps {
                 unstash 'archive'
                 sh './makefile.sh upload_to_gs'
