@@ -100,8 +100,7 @@ function upload_to_gs {
     log "upload_to_gs:"
     require_backup
     log "  Uploading archive to Google Storage"
-    docker run --rm -ti \
-	--volumes-from gcloud-config \
+    docker run --rm -t \
 	-v "${BACKUP_DIR}:/backup" \
 	'google/cloud-sdk:latest' \
 	gsutil cp "/backup/${BACKUP_FILE}" \
