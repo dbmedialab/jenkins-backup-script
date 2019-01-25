@@ -16,10 +16,14 @@ pipeline {
         stage ("Verify") {
             steps {
                 sh './makefile.sh verify'
+                stash includes: 'run/backup.tar.gz', name: 'archive'
             }
         }
+        
         stage ("Upload") {
+            agent any
             steps {
+                unstash 'archive'
                 sh './makefile.sh upload_to_gs'
             }
         }
