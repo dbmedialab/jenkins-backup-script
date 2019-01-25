@@ -4,16 +4,24 @@ pipeline {
     }
     stages {
         stage ("Clean") {
-            sh 'make clean'
+            steps {
+                sh 'make clean'
+            }
         }
         stage ("Backup") {
-            sh 'make backup'
+            steps {
+                sh 'make backup'
+            }
         }
         stage ("Verify") {
-            sh 'make verify'
+            steps {
+                sh 'make verify'
+            }
         }
         stage ("Upload") {
-            sh 'make upload-to-gs'
+            steps {
+                sh 'make upload-to-gs'
+            }
         }
     }
 }
