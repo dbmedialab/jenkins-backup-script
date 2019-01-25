@@ -5,22 +5,22 @@ pipeline {
     stages {
         stage ("Clean") {
             steps {
-                sh 'make clean'
+                sh './makefile.sh clean'
             }
         }
         stage ("Backup") {
             steps {
-                sh 'make backup'
+                sh './makefile.sh backup'
             }
         }
         stage ("Verify") {
             steps {
-                sh 'make verify'
+                sh './makefile.sh verify'
             }
         }
         stage ("Upload") {
             steps {
-                sh 'make upload-to-gs'
+                sh './makefile.sh upload_to_gs'
             }
         }
     }
