@@ -99,7 +99,6 @@ function gcloud_auth_if_necessary {
 function upload_to_gs {
     log "upload_to_gs:"
     require_backup
-    gcloud_auth_if_necessary
     log "  Uploading archive to Google Storage"
     docker run --rm -ti \
 	--volumes-from gcloud-config \
